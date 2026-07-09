@@ -1,12 +1,18 @@
 import { UserInfo } from '../UserInfo';
 
 // Add the required props
-export const TodoInfo = ({ todo }) => (
-  <article
-    className={`TodoInfo ${todo.completed ? 'TodoInfo--completed' : ''}`}
-  >
-    <h2 className="TodoInfo__title">{todo.title}</h2>
+export const TodoInfo = ({ todo }) => {
+  const todoClass = todo.completed
+    ? 'TodoInfo TodoInfo--completed'
+    : 'TodoInfo';
 
-    <UserInfo user={todo.user} />
-  </article>
-);
+    return (
+      <article
+        className={todoClass}
+      >
+        <h2 className="TodoInfo__title">{todo.title}</h2>
+
+        <UserInfo user={todo.user} />
+      </article>
+    );
+};
