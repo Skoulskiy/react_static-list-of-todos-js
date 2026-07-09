@@ -6,13 +6,11 @@ export const TodoInfo = ({ todo }) => {
     ? 'TodoInfo TodoInfo--completed'
     : 'TodoInfo';
 
-    return (
-      <article
-        className={todoClass}
-      >
-        <h2 className="TodoInfo__title">{todo.title}</h2>
+  return (
+    <article className={todoClass}>
+      <h2 className="TodoInfo__title">{todo.title}</h2>
 
-        <UserInfo user={todo.user} />
-      </article>
-    );
+      {todo.user && <UserInfo user={todo.user} />}
+    </article>
+  );
 };
